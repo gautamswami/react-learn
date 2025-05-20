@@ -221,7 +221,7 @@ function Tab({ icon, label, isActive, onClick }) {
 
 export default function App() {
   // Sort dates: today at top, then future, then past
-  const todayStr = "2025-05-25"; //new Date().toISOString().slice(0, 10);
+  const todayStr =  new Date().toISOString().slice(0, 10);
   const allDates = Object.keys(courseData).sort();
   const todayIdx = allDates.indexOf(todayStr);
   let orderedDates = [];
