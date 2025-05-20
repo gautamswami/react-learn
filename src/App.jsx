@@ -221,7 +221,7 @@ function Tab({ icon, label, isActive, onClick }) {
 
 export default function App() {
   // Sort dates: today at top, then future, then past
-  const todayStr =  new Date().toISOString().slice(0, 10);
+  const todayStr = new Date().toISOString().slice(0, 10);
   const allDates = Object.keys(courseData).sort();
   const todayIdx = allDates.indexOf(todayStr);
   let orderedDates = [];
@@ -343,45 +343,54 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col pb-20 max-w-[400px] mx-auto">
-      {/* Header */}
-      <header className="bg-white shadow p-2 flex flex-col items-center">
-        <div className="text-4xl font-thin tracking-tight mb-2">
-          <span className="font-['Monoton'] font-light mr-2">BE</span>
-          PREPARE
-        </div>
-      </header>
+    <div className="">
+      <div className="min-h-screen bg-gray-100 flex flex-col pb-20 max-w-[400px] mx-auto relative">
+        {/* Header */}
+        <header className="bg-white shadow p-2 flex flex-col items-center">
+          <div className="text-4xl font-thin tracking-tight mb-2">
+            <span className="font-['Monoton'] font-light mr-2">BE</span>
+            PREPARE
+          </div>
+        </header>
 
-      {/* Main Content */}
-      {renderContent()}
+        {/* Main Content */}
+        {renderContent()}
 
-      {/* Sticky Footer */}
-      <footer className="fixed bottom-0 left-0 w-full bg-white border-t shadow flex justify-around items-center h-16 z-10">
-        <Tab
-          icon="🏃‍♂️"
-          label="Daily"
-          isActive={activeTab === "daily"}
-          onClick={() => setActiveTab("daily")}
+        {/* Sticky Footer */}
+        <footer className="fixed bottom-0 left-[50%] translate-x-[-50%] w-full bg-white border-t shadow flex justify-around items-center h-16 z-10 max-w-[400px]">
+          <Tab
+            icon="🏃‍♂️"
+            label="Daily"
+            isActive={activeTab === "daily"}
+            onClick={() => setActiveTab("daily")}
+          />
+          <Tab
+            icon="📋"
+            label="Summary"
+            isActive={activeTab === "summary"}
+            onClick={() => setActiveTab("summary")}
+          />
+          <Tab
+            icon="🤔"
+            label="Next"
+            isActive={activeTab === "next"}
+            onClick={() => setActiveTab("next")}
+          />
+          <Tab
+            icon="⭐"
+            label="Account"
+            isActive={activeTab === "account"}
+            onClick={() => setActiveTab("account")}
+          />
+        </footer>
+      </div>
+      <div className="hidden md:block w-[20%] h-screen fixed top-0 right-[4%]">
+        <img
+          src="/mobile.svg"
+          alt="use mobile to better view"
+          className="w-full h-full"
         />
-        <Tab
-          icon="📋"
-          label="Summary"
-          isActive={activeTab === "summary"}
-          onClick={() => setActiveTab("summary")}
-        />
-        <Tab
-          icon="🤔"
-          label="Next"
-          isActive={activeTab === "next"}
-          onClick={() => setActiveTab("next")}
-        />
-        <Tab
-          icon="⭐"
-          label="Account"
-          isActive={activeTab === "account"}
-          onClick={() => setActiveTab("account")}
-        />
-      </footer>
+      </div>
     </div>
   );
 }
