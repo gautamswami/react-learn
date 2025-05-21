@@ -334,6 +334,7 @@ export default function App() {
           </>
         );
       case "summary":
+        return <Summary />;
       case "next":
       case "account":
         return <ComingSoon />;
@@ -390,6 +391,183 @@ export default function App() {
           alt="use mobile to better view"
           className="w-full h-full"
         />
+      </div>
+    </div>
+  );
+}
+
+function Summary() {
+  return (
+    <div className="p-4">
+      This is the summary of the project.
+      <img
+        src="/example.png"
+        alt="Example image of project"
+        className="object-contain w-full my-5"
+      />
+      <div class="p-6 bg-slate-900 text-white font-sans space-y-8">
+        <h1 class="text-3xl font-bold border-b border-gray-700 pb-2">
+          🧩 Key Sections of the App (UI Structure)
+        </h1>
+
+        <div class="space-y-4">
+          <p>Here’s what your app will include:</p>
+          <ol class="list-decimal list-inside space-y-2">
+            <li>
+              <strong>Sidebar (Navigation)</strong>
+              <ul class="list-disc list-inside pl-4">
+                <li>Dashboard</li>
+                <li>Tasks</li>
+                <li>Snippets</li>
+                <li>GitHub</li>
+                <li>Settings (optional)</li>
+              </ul>
+            </li>
+            <li>
+              <strong>Top Bar (Header)</strong>
+              <ul class="list-disc list-inside pl-4">
+                <li>App name / logo</li>
+                <li>Theme toggle (Light/Dark)</li>
+                <li>User/avatar (optional)</li>
+              </ul>
+            </li>
+            <li>
+              <strong>Main Content Area</strong> (changes with route)
+            </li>
+          </ol>
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-semibold border-b border-gray-700 pb-2">
+            🧠 Layout Concept (like Notion or Linear)
+          </h2>
+          <pre class="bg-gray-800 text-green-200 p-4 rounded-md overflow-x-auto text-sm">
+            +-----------------------------------------------------------+ |
+            DevBoard [⚙️][🌙] |
+            +------------------+----------------------------------------+ | 🏠
+            Dashboard | | | ✅ Tasks | Page Content Area (dynamic) | | 📄
+            Snippets | -------------------------------- | | 🐙 GitHub | - Task
+            List | | | - Snippet Editor | | | - GitHub Repos |
+            +------------------+----------------------------------------+
+          </pre>
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-semibold border-b border-gray-700 pb-2">
+            🎨 UI Design Overview (Clean + Developer-Centric)
+          </h2>
+          <h3 class="text-xl font-medium mt-4">🔹 Color Palette</h3>
+          <ul class="list-disc list-inside pl-4">
+            <li>
+              Light theme:{" "}
+              <code class="text-blue-400">
+                #ffffff, #f3f4f6, #e2e8f0, #3b82f6
+              </code>
+            </li>
+            <li>
+              Dark theme:{" "}
+              <code class="text-blue-400">
+                #0f172a, #1f2937, #60a5fa, #6ee7b7
+              </code>
+            </li>
+          </ul>
+
+          <h3 class="text-xl font-medium mt-4">🔹 Font</h3>
+          <ul class="list-disc list-inside pl-4">
+            <li>Use system font or Inter</li>
+            <li>
+              Code snippets: monospace (e.g., <code>Fira Code</code>)
+            </li>
+          </ul>
+
+          <h3 class="text-xl font-medium mt-4">🔹 Design Style</h3>
+          <ul class="list-disc list-inside pl-4">
+            <li>Minimalist, clean</li>
+            <li>Card-based layout (rounded corners, soft shadows)</li>
+            <li>TailwindCSS or Shadcn UI (if using component lib)</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-semibold border-b border-gray-700 pb-2">
+            🧱 Page-by-Page Breakdown
+          </h2>
+
+          <div class="space-y-6 mt-4">
+            <div>
+              <h3 class="text-xl font-medium">1. Dashboard</h3>
+              <ul class="list-disc list-inside pl-4">
+                <li>Welcome message</li>
+                <li>
+                  Summary stats: Tasks completed, Snippets saved, GitHub repos
+                  viewed
+                </li>
+              </ul>
+              <pre class="bg-gray-800 text-green-200 p-3 rounded-md text-sm mt-2 overflow-auto">
+                &lt;Card title="Today's Progress"&gt; &lt;ul&gt; &lt;li&gt;Tasks
+                Completed: 3&lt;/li&gt; &lt;li&gt;Snippets Saved: 2&lt;/li&gt;
+                &lt;li&gt;Repos Searched: 1&lt;/li&gt; &lt;/ul&gt; &lt;/Card&gt;
+              </pre>
+            </div>
+
+            <div>
+              <h3 class="text-xl font-medium">2. Tasks Page</h3>
+              <ul class="list-disc list-inside pl-4">
+                <li>Input bar (Task title)</li>
+                <li>Task list with check/uncheck toggle</li>
+                <li>Filter (All / Done / Pending)</li>
+              </ul>
+              <pre class="bg-gray-800 text-green-200 p-3 rounded-md text-sm mt-2 overflow-auto">
+                [ + New Task ][ Add ] [ ] Fix GitHub fetch bug [x] Add dark mode
+                toggle ✅
+              </pre>
+            </div>
+
+            <div>
+              <h3 class="text-xl font-medium">3. Snippets Page</h3>
+              <ul class="list-disc list-inside pl-4">
+                <li>Title input</li>
+                <li>Multiline textarea</li>
+                <li>Syntax-highlighted display (optional)</li>
+                <li>Tag system (e.g., “React”, “CSS”)</li>
+              </ul>
+              <pre class="bg-gray-800 text-green-200 p-3 rounded-md text-sm mt-2 overflow-auto">
+                [ Title: "Custom Hook for API" ] [ Code Editor ] (multiline) [
+                Tags: useEffect, fetch ] [ Save ] [ Cancel ]
+              </pre>
+            </div>
+
+            <div>
+              <h3 class="text-xl font-medium">4. GitHub Page</h3>
+              <ul class="list-disc list-inside pl-4">
+                <li>Input: GitHub username</li>
+                <li>
+                  Fetch + display list of repos:
+                  <ul class="list-disc list-inside pl-4">
+                    <li>Name</li>
+                    <li>Stars</li>
+                    <li>Language</li>
+                    <li>Link to repo</li>
+                  </ul>
+                </li>
+              </ul>
+              <pre class="bg-gray-800 text-green-200 p-3 rounded-md text-sm mt-2 overflow-auto">
+                [ Search: ____________ ] [ 🔍 ]
+                ------------------------------------- 📘 openai/gpt-react ⭐
+                1.2k | JS | 🔗 View
+              </pre>
+            </div>
+
+            <div>
+              <h3 class="text-xl font-medium">5. Settings (Optional)</h3>
+              <ul class="list-disc list-inside pl-4">
+                <li>Toggle theme</li>
+                <li>Reset localStorage</li>
+                <li>Export data (JSON)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
